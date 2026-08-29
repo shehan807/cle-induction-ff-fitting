@@ -1,0 +1,20 @@
+ATOM      1 N00  IM      1      -2.272  -1.624   2.807  1.00  0.00           N
+ATOM      2 N0   IM      1      -1.142  -1.549   0.910  1.00  0.00           N
+ATOM      3 H2   IM      1      -0.013  -3.365   1.175  1.00  0.00           H
+ATOM      4 H21  IM      1      -1.421  -3.457   3.500  1.00  0.00           H
+ATOM      5 H1   IM      1      -2.510  -0.003   1.458  1.00  0.00           H
+ATOM      6 H0   IM      1      -0.746  -1.189   0.000  1.00  0.00           H
+ATOM      7 C2   IM      1      -0.761  -2.686   1.556  1.00  0.00           C
+ATOM      8 C21  IM      1      -1.465  -2.723   2.717  1.00  0.00           C
+ATOM      9 C1   IM      1      -2.042  -0.940   1.699  1.00  0.00           C
+TER
+CONECT    1    8
+CONECT    1    9
+CONECT    2    6
+CONECT    2    7
+CONECT    2    9
+CONECT    3    7
+CONECT    4    8
+CONECT    5    9
+CONECT    7    8
+END
