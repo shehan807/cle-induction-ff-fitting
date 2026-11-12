@@ -1,3 +1,6 @@
 __pycache__/
 *.pyc
 mbis_charges.csv
+grac_shifts.csv
+grac_shifts.out
+timer.dat
