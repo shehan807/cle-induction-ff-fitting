@@ -1,0 +1,30 @@
+! Per atom type: a rank-1 line, then the starting polarizability (bohr^3).
+! positive = fit, negative = fix, zero = no Drude.
+!
+N00
+1
+7.0
+N01
+1
+7.0
+C02
+1
+12.0
+C03
+1
+12.0
+C04
+1
+12.0
+H05
+1
+0.0
+H06
+1
+0.0
+H07
+1
+0.0
+H08
+1
+0.0

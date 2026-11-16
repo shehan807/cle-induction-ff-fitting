@@ -67,3 +67,40 @@ relink the binaries against OpenBLAS:
       ln -s ../osx/gfortran/$b bin/$b
     done
     rm bin/no_psi4
+
+# Polarizabilities
+
+Drude polarizabilities fitted to the p2p responses (run `p2p_responses.py` first). Atoms of one
+polarizable atom type share a polarizability; `SCHEME` at the top of the script picks the types:
+
+- `"transferability"` (default): from the data. Every heavy atom starts as its own type, and two
+  types of the same element are combined whenever that raises no molecule's fit error by more than
+  `LAMBDA` (10%). The four monomers end up with five types for their 17 heavy atoms.
+- `"transferability_conditioned"`: the same, but only atoms whose chemical environments match out
+  to `RADIUS` bonds may combine.
+- `"sapt2013"`: predefined types (one C and one N shared by imidazole and pyrazole, acetic acid's
+  two O shared, every other heavy atom its own).
+
+How the five types are chosen: two types are combined only if, after refitting, no molecule's
+fit error (RMS over the grid) rises by more than 10%. Merging stops at five types because every
+further merge would raise some molecule's error by at least 13.6%; any limit from 3.0% to 13.6%
+gives the same five. Scoring all 5.5 million possible sharings confirmed that these five have the
+lowest mean and worst-molecule error of any five-type model.
+
+The fitting equations are in McDaniel's thesis (2014, Appendix A) and in McDaniel and Schmidt,
+J. Phys. Chem. A 2013; the docstring of `polarizabilities.py` lists them.
+
+Run:
+
+    micromamba run -n cle-mbis python polarizabilities.py
+
+Prints each type's polarizability and the atoms in it, and writes `polarizabilities.csv`.
+About 25 min for `"transferability"`, 2 min for `"sapt2013"`.
+
+# Legacy Fortran fitter
+
+The original Fortran fitter, kept for reference. Run:
+
+    micromamba run -n cle-mbis bash legacy_fortran/run_fortran.sh formamide
+
+Prints one polarizability per heavy atom. Needs gfortran.
