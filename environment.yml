@@ -9,6 +9,8 @@ dependencies:
   - numpy
   - scipy
   - ambertools              # AM1-BCC (sqm)
+  - openmm
+  - pytest
   - pip
   - pip:
       - "pympfit @ git+https://github.com/shehan807/pympfit.git"

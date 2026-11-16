@@ -98,6 +98,19 @@ Run:
 Prints each type's polarizability and the atoms in it, and writes `polarizabilities.csv`.
 About 25 min for `"transferability"`, 2 min for `"sapt2013"`.
 
+# Force field XMLs
+
+OpenMM Drude force fields from the MBIS charges and the polarizabilities (run
+`partial_charges.py` and `polarizabilities.py` first). Run:
+
+    micromamba run -n cle-mbis python force_field_xml.py
+
+Writes `force_fields/<method>/<molecule>.xml` (one force field per charge method; MBIS is the
+one used in this work) from the templates in `templates/`; only the charges and polarizabilities
+change. Check them with:
+
+    micromamba run -n cle-mbis python -m pytest test_force_field_xml.py
+
 # Legacy Fortran fitter
 
 The original Fortran fitter, kept for reference. Run:
