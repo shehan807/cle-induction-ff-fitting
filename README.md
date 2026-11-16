@@ -1,7 +1,8 @@
-# MBIS charges
+# Partial charges
 
-MBIS partial atomic charges (HF/aug-cc-pVDZ) for acetic acid, formamide, imidazole,
-and pyrazole, computed on the geometries in `geometries/`.
+Partial atomic charges for acetic acid, formamide, imidazole, and pyrazole by four
+methods: MBIS (used in this work), RESP, MPFIT, and AM1-BCC. MBIS, RESP and MPFIT use
+HF/aug-cc-pVDZ on the geometries in `geometries/`; AM1-BCC relaxes the geometry first.
 
 Setup:
 
@@ -11,8 +12,8 @@ Run:
 
     micromamba run -n cle-mbis python partial_charges.py
 
-Prints the charges, writes `mbis_charges.csv`, and checks imidazole's N00 against the
-reference value. Takes about a minute.
+Prints one column of charges per method, writes `partial_charges.csv`, and checks
+imidazole's MBIS N00 against the reference value.
 
 Charges are computed on the PDB coordinates directly; the SMILES only set bond orders
 and formal charges, so don't swap in a SMILES-generated geometry.

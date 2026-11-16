@@ -8,6 +8,8 @@ dependencies:
   - openff-recharge=0.5.3
   - numpy
   - scipy
+  - ambertools              # AM1-BCC (sqm)
   - pip
   - pip:
       - "pympfit @ git+https://github.com/shehan807/pympfit.git"
+      - "resp @ git+https://github.com/cdsgroup/resp.git"   # Psi4 RESP plugin
